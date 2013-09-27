@@ -6577,6 +6577,8 @@ static OSStatus SSLWriteFunction(SSLConnectionRef connection, const void *data, 
 			}
 		});
 
+		CFRelease(trust);
+
 		if (!shouldTrust)
 		{
 			[self closeWithError:[self sslError:errSSLPeerBadCert]];
